@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .headname {
+      font-size: 15px;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+    tr {
+      padding: 5px;
+    }
+  </style>
+  <body>
+    <div style="text-align: center">
+      <div class="headname">Report For Expenses</div>
+      <div>
+        <table>
+          <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Payment Type</th>
+            <th>Date</th>
+          </tr>
+          {% if context_obj %} {% for expense_obj in context_obj %}
+          <tr>
+            <td>{{expense_obj.amount}}</td>
+            <td>{{expense_obj.category}}</td>
+            <td>{{expense_obj.description}}</td>
+            <td>{{expense_obj.paymentType}}</td>
+            <td>{{expense_obj.create_date}}</td>
+          </tr>
+
+          {% endfor %} {% else %} {% endif %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
