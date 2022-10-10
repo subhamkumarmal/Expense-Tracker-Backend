@@ -23,7 +23,7 @@ def get_dash_board_details(request):
         return HttpResponse('something went wrong!!')
 
 
-def get_expenses_obj(dateTime=datetime.today()-timedelta(days=1)):
+def get_expenses_obj(dateTime=datetime.today()-timedelta(minutes=60)):
     _expense_obj = ExpenseTracker.objects.filter(
         create_date__range=(dateTime, datetime.today())
     )
